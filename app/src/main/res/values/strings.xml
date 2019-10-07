@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">HelloIoTWorld</string>
+    <string name="button_Message">Have Fun!</string>
+    <string name="text_label">Send Message</string>
+    <string name="greeting">Hello IoT World!</string>
+</resources>
