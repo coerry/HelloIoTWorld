@@ -29,8 +29,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="194dp"
-        android:layout_height="61dp"
+        android:layout_width="250dp"
+        android:layout_height="57dp"
         android:text="Main Menu"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -42,16 +42,17 @@
         app:layout_constraintVertical_bias="0.064" />
 
     <Button
-        android:id="@+id/back_button"
+        android:id="@+id/drink_history_button"
         android:layout_width="183dp"
         android:layout_height="50dp"
-        android:text="Pay"
+        android:layout_marginTop="16dp"
+        android:text="Drink History"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.577"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderDrink_Button"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintTop_toBottomOf="@+id/orderDrink_button"
+        app:layout_constraintVertical_bias="0.137" />
 
     <Button
         android:id="@+id/orderDrink_button"

@@ -23,6 +23,9 @@ public class DrinkStatus extends AppCompatActivity {
         //TODO:Connect with real tag detection
         //EXTRA TODO: IF THERE IS TIME! Show in field notice always the last user.
 
+        //Comment: I added the tag id #3 with the same code than the else clause, just to make sure
+        // we can use the tag id #3 to set back the status to Drink OK.
+
         drinkOk = findViewById(R.id.drinkOk);
         drinkPoisoned = findViewById(R.id.drinkPoisoned);
         notice = findViewById(R.id.textView6);
@@ -32,6 +35,10 @@ public class DrinkStatus extends AppCompatActivity {
             drinkOk.setVisibility(View.INVISIBLE);
             drinkPoisoned.setVisibility(View.VISIBLE);
             notice.setVisibility(View.VISIBLE);
+        }else if(tagID == 3){
+            drinkOk.setVisibility(View.VISIBLE);
+            drinkPoisoned.setVisibility(View.INVISIBLE);
+            notice.setVisibility(View.INVISIBLE);
         }else{
             drinkOk.setVisibility(View.VISIBLE);
             drinkPoisoned.setVisibility(View.INVISIBLE);

@@ -22,6 +22,7 @@ public class OrderHistory extends AppCompatActivity {
         orderHistory = findViewById(R.id.drinkHistory);
 
         //TODO: show all ordered drinks in the orderHistory multiline text field with price.
+        //TODO: Show a sum of the drinks "You need to pay"
         //TODO: IF ID #5 gets detected do the code in the if-clause
 
         if (tagID == 5) {
