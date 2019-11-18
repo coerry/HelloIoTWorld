@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.196" />
 
     <Button
-        android:id="@+id/back_button"
+        android:id="@+id/drink_history_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="btn_click"
@@ -52,7 +52,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/back_button"
+        app:layout_constraintBottom_toTopOf="@+id/drink_history_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drinkHistory" />

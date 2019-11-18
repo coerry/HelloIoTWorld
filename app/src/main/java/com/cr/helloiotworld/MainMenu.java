@@ -21,7 +21,7 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-
+        // EXTRA TODO: Greet User by name instead of "Main Menu"
 
         listView= findViewById(R.id.listView);
 
@@ -59,11 +59,16 @@ public class MainMenu extends AppCompatActivity {
                     }
                     break;
             case R.id.orderDrink_button:
-                //
+                //TODO: add the selected Drink to the Ordered list
+                break;
+
+            case R.id.drink_history_button:
+                Intent intent = new Intent(this, OrderHistory.class);
+                startActivity(intent);
                 break;
             case R.id.glass_status_button:
-                Intent intent = new Intent(this, DrinkStatus.class);
-                startActivity(intent);
+                Intent intent2 = new Intent(this, DrinkStatus.class);
+                startActivity(intent2);
                 break;
 
         }
