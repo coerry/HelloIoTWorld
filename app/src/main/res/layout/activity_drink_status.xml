@@ -10,6 +10,7 @@
         android:id="@+id/delete_brand_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="btn_click"
         android:text="back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,6 +27,16 @@
         app:layout_constraintGuide_begin="20dp" />
 
     <ImageView
+        android:id="@+id/drinkPoisoned"
+        android:layout_width="314dp"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toTopOf="@+id/delete_brand_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/drinkpoisoned" />
+
+    <ImageView
         android:id="@+id/drinkOk"
         android:layout_width="314dp"
         android:layout_height="500dp"
@@ -36,16 +47,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.298"
         app:srcCompat="@drawable/drink" />
-
-    <ImageView
-        android:id="@+id/drinkPoisoned"
-        android:layout_width="314dp"
-        android:layout_height="500dp"
-        app:layout_constraintBottom_toTopOf="@+id/delete_brand_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/drinkpoisoned" />
 
     <TextView
         android:id="@+id/textView6"
