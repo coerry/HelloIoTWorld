@@ -8,21 +8,6 @@
     tools:layout_editor_absoluteX="-4dp"
     tools:layout_editor_absoluteY="86dp">
 
-    <TextView
-        android:id="@+id/Hello"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="20dp"
-        android:hint="@string/greeting"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextOld"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <Button
         android:id="@+id/add_brand_button"
         android:layout_width="wrap_content"
@@ -35,7 +20,7 @@
         app:layout_constraintTop_toTopOf="@+id/add_product_button" />
 
     <Button
-        android:id="@+id/delete_brand_button"
+        android:id="@+id/glass_status_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -120,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/update_product_button" />
 
     <EditText
-        android:id="@+id/editTextOld"
+        android:id="@+id/inputCreditCard"
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginStart="99dp"
@@ -177,10 +162,10 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/read_button"
-        app:layout_constraintVertical_bias="0.404" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView"
@@ -188,9 +173,24 @@
         android:layout_height="233dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintHorizontal_bias="0.302"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/read_button"
-        app:layout_constraintVertical_bias="0.454" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/menu_button"
+        android:layout_width="171dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="140dp"
+        android:onClick="btn_click"
+        android:text="MainMenu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextNew"
+        app:layout_constraintVertical_bias="0.553" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

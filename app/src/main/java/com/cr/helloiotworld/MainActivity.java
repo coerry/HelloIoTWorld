@@ -1,9 +1,11 @@
 package com.cr.helloiotworld;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,12 +25,15 @@ public class MainActivity extends AppCompatActivity {
     DatabaseHandler db;
     private TextView txt;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        oldText = findViewById(R.id.editTextOld);
+
+
+        //oldText = findViewById(R.id.editTextOld);
         newText = findViewById(R.id.editTextNew);
         editBrandId = findViewById(R.id.editTextBrandId);
         textView = findViewById(R.id.textView);
@@ -122,6 +127,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.update_brand_button:
                 db.updateBrand(oldText.getText().toString(),
                         newText.getText().toString());
+                break;
+            case R.id.menu_button:
+                Intent intent = new Intent(this, login.class);
+                startActivity(intent);
                 break;
             case R.id.read_button:
                 textView.setText("");
