@@ -13,16 +13,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="172dp"
         android:layout_marginRight="172dp"
-        android:onClick="btn_click"
+        android:onClick="login"
         android:text="Log in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputCreditCard" />
+        app:layout_constraintTop_toBottomOf="@+id/loginCreditCardInput" />
 
     <EditText
-        android:id="@+id/inputCreditCard"
+        android:id="@+id/loginCreditCardInput"
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginStart="99dp"
@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.651" />
 
     <EditText
-        android:id="@+id/inputName2"
+        android:id="@+id/loginNameInput"
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginStart="99dp"
@@ -52,7 +52,7 @@
         android:ems="10"
         android:hint="Enter Your Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/inputCreditCard"
+        app:layout_constraintBottom_toTopOf="@+id/loginCreditCardInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
         android:id="@+id/imageView2"
         android:layout_width="453dp"
         android:layout_height="379dp"
-        app:layout_constraintBottom_toTopOf="@+id/inputName2"
+        app:layout_constraintBottom_toTopOf="@+id/loginNameInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

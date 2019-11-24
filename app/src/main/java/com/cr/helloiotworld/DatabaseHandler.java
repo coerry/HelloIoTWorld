@@ -2,12 +2,21 @@ package com.cr.helloiotworld;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class DatabaseHandler extends SQLiteOpenHelper {
+
+    private static volatile DatabaseHandler sInstance;
 
     //Database Version
     private static final int DATABASE_VERSION = 2;
@@ -25,8 +34,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 //    private static final String BRAND_ID = "id";
 //    private static final String BRAND_NAME = "name";
 
-    public DatabaseHandler(@Nullable Context context) {
+    private DatabaseHandler(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public static synchronized DatabaseHandler getInstance(Context context) {
+        // Use the application context, which will ensure that you
+        // don't accidentally leak an Activity's context.
+        // See this article for more information: http://bit.ly/6LRzfx
+        if (sInstance == null)
+            sInstance = new DatabaseHandler(context.getApplicationContext());
+
+        return sInstance;
     }
 
     @Override
@@ -37,16 +56,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "Creditcard" + " text, " +
                 "RFID_TN" + " integer);");
 
-        db.execSQL("create table " + "Things" +
+        db.execSQL("create table " + "Drinks" +
                 " (" + "ID" + " integer primary key autoincrement, " +
                 "Name" + " text, " +
                 "Price" + " real, " +
+                "Status" + " text, " + // statuses: "-", "chosen", "bought"
                 "RFID_TN" + " integer);");
 
-        db.execSQL("");
-
-        // adding a bad guy
+        // adding the bad gay:
         registerClient("Tom Rocket", "000000000000", 2);
+
+        // adding the good guy:
+        registerClient("Julia HappyDance", "1111", 1);
+
+        // adding drinks:
+        addDrink("Wine", 5f);
+        addDrink("Beer", 3f);
+        addDrink("Vodka Red Bull", 4f);
+        addDrink("Gin Tonic", 6f);
+        addDrink("Cola", 2.5f);
+        addDrink("Orange Juice", 2.5f);
+        addDrink("Soda", 2.5f);
+
+        // Better way to do it is to add table PersonDrinks for multiple users
     }
 
     @Override
@@ -63,6 +95,80 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         contentValues.put("RFID_TN", RFID_TN);
 
         this.getWritableDatabase().insertOrThrow("Person", "", contentValues);
+    }
+
+    public boolean checkClient(String name) {
+        SQLiteDatabase db = getReadableDatabase();
+        String sql = "select count(*) from " + "Person" + " where "
+                + "Name" + " = " + DatabaseUtils.sqlEscapeString(name);
+
+        try (SQLiteStatement statement = db.compileStatement(sql)) {
+            return statement.simpleQueryForLong() > 0;
+        }
+    }
+
+    public Integer getTN(String name) {
+        try (Cursor cur = getWritableDatabase().rawQuery("select RFID_TN from Person where Name = " + name, null)) {
+            cur.moveToFirst();
+
+            return cur.getInt(0);
+        }
+    }
+
+    public ArrayList<Map<String, String>> getAllDrinks(String status) {
+        try (Cursor cur = getWritableDatabase().rawQuery("select * from " + "Drinks" + " where Status = '" + status + "'", null)) {
+            cur.moveToFirst();
+            ArrayList<Map<String, String>> al = new ArrayList<>();
+
+            while (!cur.isAfterLast()) {
+                al.add(new HashMap<String, String>() {
+                    {
+                        put(cur.getColumnName(0), cur.getString(0));
+                        put(cur.getColumnName(1), cur.getString(1));
+                        put(cur.getColumnName(2), cur.getString(2));
+                        put(cur.getColumnName(3), cur.getString(3));
+                        put(cur.getColumnName(4), "3");
+                    }
+                });
+                cur.moveToNext();
+            }
+
+            return al;
+        }
+    }
+
+    public void addDrink(String name, Float price) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Name", name);
+        contentValues.put("Price", price);
+        contentValues.put("Status", "-");
+
+        this.getWritableDatabase().insertOrThrow("Drinks", "", contentValues);
+    }
+
+    public Long choseDrink(Integer id) {
+        try (Cursor cur = getWritableDatabase().rawQuery("select Name, Price from Drinks where ID = " + id, null)) {
+            cur.moveToFirst();
+
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("Name", cur.getString(0));
+            contentValues.put("Price", cur.getFloat(1));
+            contentValues.put("Status", "chosen");
+
+            return this.getWritableDatabase().insertOrThrow("Drinks", "", contentValues);
+        }
+    }
+
+    public void buyDrink(Integer id) {
+        this.getWritableDatabase().execSQL("update " + "Drinks" +
+                " set Status = '" + "bought" +
+                "' where id = '" + id + "'");
+    }
+
+    public void buyAllDrinks() {
+        this.getWritableDatabase().execSQL("update " + "Drinks" +
+                " set Status = '" + "bought" +
+                "' where Status = 'chosen'");
     }
 
 //    public void insertProduct(String name, Integer brandId) {

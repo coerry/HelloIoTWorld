@@ -1,22 +1,27 @@
 package com.cr.helloiotworld;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class OrderHistory extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    TextView payNotice;
-    int tagID;
-    EditText orderHistory;
+import java.util.ArrayList;
+
+public class OrderHistory extends AppCompatActivity {
+    private TextView payNotice;
+    private int tagID;
+    private EditText orderHistory;
+
+    private DatabaseHandler db = DatabaseHandler.getInstance(this);
+    private ArrayList<String> orders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_order_history);
         payNotice = findViewById(R.id.payNotice);
         orderHistory = findViewById(R.id.drinkHistory);
@@ -31,6 +36,10 @@ public class OrderHistory extends AppCompatActivity {
             payNotice.setVisibility(View.VISIBLE);
         }
 
+
+    }
+
+    public void addDrink(String drink) {
 
     }
 

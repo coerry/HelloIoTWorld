@@ -7,7 +7,6 @@ import com.cr.helloiotworld.data.model.LoggedInUser;
  * maintains an in-memory cache of login status and user credentials information.
  */
 public class LoginRepository {
-
     private static volatile LoginRepository instance;
 
     private LoginDataSource dataSource;
@@ -22,9 +21,9 @@ public class LoginRepository {
     }
 
     public static LoginRepository getInstance(LoginDataSource dataSource) {
-        if (instance == null) {
+        if (instance == null)
             instance = new LoginRepository(dataSource);
-        }
+
         return instance;
     }
 
@@ -43,12 +42,13 @@ public class LoginRepository {
         // @see https://developer.android.com/training/articles/keystore
     }
 
-    public Result<LoggedInUser> login(String username, String password) {
+    public Result<LoggedInUser> login(String username, String creditCard) {
         // handle login
-        Result<LoggedInUser> result = dataSource.login(username, password);
-        if (result instanceof Result.Success) {
+        Result<LoggedInUser> result = dataSource.login(username, creditCard);
+
+        if (result instanceof Result.Success)
             setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
-        }
+
         return result;
     }
 }
