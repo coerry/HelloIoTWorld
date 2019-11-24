@@ -64,19 +64,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "RFID_TN" + " integer);");
 
         // adding the bad gay:
-        registerClient("Tom Rocket", "000000000000", 2);
+        registerClient("Tom Rocket", "000000000000", 2, db);
 
         // adding the good guy:
-        registerClient("Julia HappyDance", "1111", 1);
+        registerClient("Julia HappyDance", "1111", 1, db);
 
         // adding drinks:
-        addDrink("Wine", 5f);
-        addDrink("Beer", 3f);
-        addDrink("Vodka Red Bull", 4f);
-        addDrink("Gin Tonic", 6f);
-        addDrink("Cola", 2.5f);
-        addDrink("Orange Juice", 2.5f);
-        addDrink("Soda", 2.5f);
+        addDrink("Wine", 5f, db);
+        addDrink("Beer", 3f, db);
+        addDrink("Vodka Red Bull", 4f, db);
+        addDrink("Gin Tonic", 6f, db);
+        addDrink("Cola", 2.5f, db);
+        addDrink("Orange Juice", 2.5f, db);
+        addDrink("Soda", 2.5f, db);
 
         // Better way to do it is to add table PersonDrinks for multiple users
     }
@@ -88,13 +88,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void registerClient(String name, String creditcard, Integer RFID_TN) {
+    public static void registerClient(String name, String creditcard, Integer RFID_TN, SQLiteDatabase db) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("Name", name);
         contentValues.put("Creditcard", creditcard);
         contentValues.put("RFID_TN", RFID_TN);
 
-        this.getWritableDatabase().insertOrThrow("Person", "", contentValues);
+        db.insertOrThrow("Person", "", contentValues);
     }
 
     public boolean checkClient(String name) {
@@ -137,13 +137,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
     }
 
-    public void addDrink(String name, Float price) {
+    public void addDrink(String name, Float price, SQLiteDatabase db) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("Name", name);
         contentValues.put("Price", price);
         contentValues.put("Status", "-");
 
-        this.getWritableDatabase().insertOrThrow("Drinks", "", contentValues);
+        db.insertOrThrow("Drinks", "", contentValues);
     }
 
     public Long choseDrink(Integer id) {

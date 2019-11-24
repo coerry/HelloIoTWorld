@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -43,6 +44,13 @@ public class MainMenu extends AppCompatActivity {
         // EXTRA TODO: Greeting a customer!
 
 //        nameGreetings.setText("Hey! " + );
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                db.choseDrink(position + 1);
+            }
+        });
     }
 
     public void btn_click(View view) {
@@ -62,11 +70,9 @@ public class MainMenu extends AppCompatActivity {
                     connectedAntenna = true;
                 }
                 break;
-            case R.id.orderDrink_button:
-                //TODO: add the selected Drink to the Ordered list
-                break;
             case R.id.drink_history_button:
                 Intent intent = new Intent(this, OrderHistory.class);
+                intent.putExtra("chosen", db.getAllDrinks("chosen"));
                 startActivity(intent);
                 break;
             case R.id.glass_status_button:

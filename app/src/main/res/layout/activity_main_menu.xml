@@ -45,27 +45,15 @@
         android:id="@+id/drink_history_button"
         android:layout_width="183dp"
         android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="76dp"
         android:onClick="btn_click"
         android:text="Drink History"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.577"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderDrink_button"
-        app:layout_constraintVertical_bias="0.137" />
-
-    <Button
-        android:id="@+id/orderDrink_button"
-        android:layout_width="183dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:onClick="btn_click"
-        android:text="Order Drink"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.577"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView" />
+        app:layout_constraintTop_toBottomOf="@+id/listView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/connectGlass"
@@ -88,22 +76,22 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/glass_status_button"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.024" />
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="291dp"
-        android:layout_height="184dp"
+        android:layout_width="281dp"
+        android:layout_height="227dp"
         android:background="#006B6A6A"
-        android:choiceMode="multipleChoice"
+        android:choiceMode="singleChoice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/glass_status_button"
-        app:layout_constraintVertical_bias="0.285" />
+        app:layout_constraintVertical_bias="0.419" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
