@@ -22,10 +22,9 @@
         android:text="Check Glass Status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameGreetings"
-        app:layout_constraintVertical_bias="0.199" />
+        app:layout_constraintVertical_bias="0.051" />
 
     <TextView
         android:id="@+id/nameGreetings"
@@ -53,19 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listView"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/connectGlass"
-        android:layout_width="183dp"
-        android:layout_height="50dp"
-        android:background="#00BCD4"
-        android:onClick="btn_click"
-        android:text="Connect to Glass"
-        app:layout_constraintBottom_toTopOf="@+id/glass_status_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameGreetings" />
+        app:layout_constraintVertical_bias="0.431" />
 
     <TextView
         android:id="@+id/textView3"
@@ -83,8 +70,8 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="281dp"
-        android:layout_height="227dp"
+        android:layout_width="282dp"
+        android:layout_height="293dp"
         android:background="#006B6A6A"
         android:choiceMode="singleChoice"
         app:layout_constraintBottom_toBottomOf="parent"

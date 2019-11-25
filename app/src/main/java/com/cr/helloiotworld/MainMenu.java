@@ -54,22 +54,9 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void btn_click(View view) {
-        Button glassStatus = findViewById(R.id.connectGlass);
 
         switch (view.getId()) {
-            case R.id.connectGlass:
-                if (connectedAntenna) {
-                    //TODO:Send Start query to Antenna
-                    glassStatus.setText("not connected");
-                    glassStatus.setBackgroundColor(Color.parseColor("#FFE91E63"));
-                    connectedAntenna = false;
-                } else {
-                    //TODO:Send Stop query to Antenna
-                    glassStatus.setText("Connected");
-                    glassStatus.setBackgroundColor(Color.parseColor("#FF4CAF50"));
-                    connectedAntenna = true;
-                }
-                break;
+
             case R.id.drink_history_button:
                 Intent intent = new Intent(this, OrderHistory.class);
                 intent.putExtra("chosen", db.getAllDrinks("chosen"));
