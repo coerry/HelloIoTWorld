@@ -25,7 +25,7 @@ public class DrinkStatus extends AppCompatActivity {
     ImageView drinkOk;
     ImageView drinkPoisoned;
     TextView notice;
-    private Integer tagID[] = {0, 0, 0, 0, 0}
+    private Integer tagID[] = {0, 0, 0, 0, 0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
